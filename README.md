@@ -1,6 +1,6 @@
-# FontInstaller
+# 🗃️ FontInstaller
 
-A font installer for Windows
+A font installer script for Windows
 
 ## Usage
 
