@@ -37,4 +37,4 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ## LICENSE
 
-MIT
+[MIT](./LICENSE)
