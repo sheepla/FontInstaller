@@ -14,7 +14,6 @@ Resolve-Path -Path:${Path} | ForEach-Object -Process {
     }
 }
 
-
 try
 {
     ${shell} = New-Object -ComObject "Shell.Application"
