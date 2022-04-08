@@ -1,6 +1,14 @@
+<div align="center">
+
 # 🗃️ FontInstaller
 
+</div>
+
+<div align="center">
+
 A font installer script for Windows
+
+</div>
 
 ## Usage
 
@@ -12,17 +20,17 @@ This script resolve the path automatically so you can use glob pattern e.g. `*.t
 ```
 
 To see a list of already installed fonts, run `Get-Fonts.ps1`.
-You can narrow the list by specifying the `-Name`, `-Path`, `-ModifyDate` parameter.
+You can narrow the list by specifying the `-Name`, `-Path` parameter.
 
 ```
-❯ Get-Font.ps1 -Name biz
+❯ Get-Font.ps1 -Name plemol
 
-Name            Path                                  ModifyDate
-----            ----                                  ----------
-BIZ UDゴシック  C:\Windows\Fonts\BIZ UDゴシック       1899/12/30 0:00:00
-BIZ UDPゴシック C:\Windows\Fonts\BIZ UDPゴシック      1899/12/30 0:00:00
-BIZ UD明朝 中   C:\Windows\Fonts\BIZ UDMincho Medium  1899/12/30 0:00:00
-BIZ UDP明朝 中  C:\Windows\Fonts\BIZ UDPMincho Medium 1899/12/30 0:00:00
+Name               Path
+----               ----
+UDEV Gothic 35NF   C:\Windows\Fonts\UDEV Gothic 35NF
+UDEV Gothic 35NFLG C:\Windows\Fonts\UDEV Gothic 35NFLG
+UDEV Gothic NF     C:\Windows\Fonts\UDEV Gothic NF
+UDEV Gothic NFLG   C:\Windows\Fonts\UDEV Gothic NFLG
 ```
 
 ## Installation

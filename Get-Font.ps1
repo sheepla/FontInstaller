@@ -4,10 +4,7 @@ param
     [string] $Name,
 
     [Parameter(Mandatory=$false, ValueFromPipeline=$false, ValueFromPipelineByPropertyName=$false)]
-    [string] $Path,
-
-    [Parameter(Mandatory=$false, ValueFromPipeline=$false, ValueFromPipelineByPropertyName=$false)]
-    [string] $ModifyDate
+    [string] $Path
 )
 
 [int] ${namespace} = 0x14
@@ -20,12 +17,9 @@ try
         [pscustomobject] @{
             Name = $_.Name
             Path = $_.Path
-            ModifyDate = $_.ModifyDate
         }
     } | Where-Object -FilterScript {
-        $_.Name -ilike "*${Name}*" -and
-        $_.Path -ilike "*${Path}*" -and
-        $_.ModifyDate -ilike "*${ModifyDate}*"
+        $_.Name -ilike "*${Name}*" -and $_.Path -ilike "*${Path}*"
     }
 } 
 catch 
