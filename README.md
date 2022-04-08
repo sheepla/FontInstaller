@@ -10,6 +10,10 @@ A font installer script for Windows
 
 </div>
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/62412884/162456874-34cb822e-f592-4f24-bfee-721c23b1c40e.png" width="70%">
+</div>
+
 ## Usage
 
 ### Install multiple fonts in bulk
