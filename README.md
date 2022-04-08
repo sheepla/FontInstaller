@@ -21,7 +21,7 @@ To install a font, simply specify the path of the font file as the first argumen
 ❯ Install-Font.ps1 path/to/SomeFont*.ttf # File path includes wild card
 ```
 
-### Install all fonts from zip archive
+### Install from zip archive
 
 When this script finds the zip file, it automatically extract the zip file to a temporary directory and installs all the fonts stored in it.
 
@@ -31,7 +31,7 @@ When this script finds the zip file, it automatically extract the zip file to a 
 
 ### Show already installed fonts list
 
-To see a list of already installed fonts, run `Get-Fonts.ps1`.
+To see a list of already installed fonts, run `Get-Font.ps1`.
 You can narrow the list by specifying the `-Name`, `-Path` parameter.
 
 ```
