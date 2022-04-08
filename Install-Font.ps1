@@ -39,8 +39,27 @@ function Get-FontFile
 
     foreach (${p} in ${Path})
     {
-        Get-ChildItem -Path:${p} -Recurse -File -Include @("*.ttf", "*.otf") | Select-Object -ExpandProperty:FullName
+        Get-ChildItem -Path:${p} -Recurse -Include "*.zip" | ForEach-Object -Process:{
+            Expand-FontArchive -Path:${p}
+        }
+        Get-ChildItem -Path:${p} -Recurse -File -Include:@("*.ttf", "*.otf") | Select-Object -ExpandProperty:FullName
     }
+}
+
+function  Expand-FontArchive
+{
+    param (
+        [string] ${Path}
+    )
+    ${tempDirName} = "{0}_{1}" -f ([datetime]::Now.ToString("yyyymmdd_HHMMss")), ([System.IO.Path]::GetFileNameWithoutExtension(${Path}))
+    ${destinationPath} = Join-Path -Path:"${env:TEMP}" -ChildPath:${tempDirName}
+    Write-Verbose "Extracting ${Path} -> ${destinationPath}..."
+
+    # Extract  zip
+    Expand-Archive -Path:${Path} -DestinationPath:${destinationPath} | Out-Null
+
+    # Output font file path
+    Get-ChildItem -Path:${destinationPath} -Recurse -File -Include:@("*.ttf", "*.otf") | Select-Object -ExpandProperty:FullName
 }
 
 Get-FontFile ${Path} | ForEach-Object -Process:{
