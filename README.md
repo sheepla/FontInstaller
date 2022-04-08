@@ -27,8 +27,10 @@ BIZ UDP明朝 中  C:\Windows\Fonts\BIZ UDPMincho Medium 1899/12/30 0:00:00
 
 ## Installation
 
-Clone or download this repository. 
-To run local PowerShell script on Windows, run the following with Administrator privileges.
+Clone or download this repository. Or download the archive from [latest release](https://github.com/sheepla/FontInstaller/releases/latest) page then extract it.
+
+To run local PowerShell script on Windows, execution policy changes are required.
+Run the following with Administrator privileges.
 
 ```powershell
 # PowerShell (Administrator)
