@@ -12,12 +12,24 @@ A font installer script for Windows
 
 ## Usage
 
-To install fonts, just specify font file path or directory in first argument.
-This script resolve the path automatically so you can use glob pattern e.g. `*.ttf`
+### Install multiple fonts in bulk
+
+To install a font, simply specify the path of the font file as the first argument. This script resolves the path automatically, so you can specify wild card e.g. `*.ttf`.
 
 ```powershell
-❯ Install-Font.ps1 path/to/SomeFont*.ttf
+❯ Install-Font.ps1 Somefont/             # Directory path
+❯ Install-Font.ps1 path/to/SomeFont*.ttf # File path includes wild card
 ```
+
+### Install all fonts from zip archive
+
+When this script finds the zip file, it automatically extract the zip file to a temporary directory and installs all the fonts stored in it.
+
+```powershell
+❯ Install-Font.ps1 Somefont.zip
+```
+
+### Show already installed fonts list
 
 To see a list of already installed fonts, run `Get-Fonts.ps1`.
 You can narrow the list by specifying the `-Name`, `-Path` parameter.
