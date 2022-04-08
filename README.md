@@ -35,7 +35,7 @@ UDEV Gothic NFLG   C:\Windows\Fonts\UDEV Gothic NFLG
 
 ## Installation
 
-Clone or download this repository. Or download the archive from [latest release](https://github.com/sheepla/FontInstaller/releases/latest) page then extract it.
+Clone or download this repository. Otherwise download the archive from the [latest release](https://github.com/sheepla/FontInstaller/releases/latest) page then extract it.
 
 To run local PowerShell script on Windows, execution policy changes are required.
 Run the following with Administrator privileges.
@@ -48,3 +48,4 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ## LICENSE
 
 [MIT](./LICENSE)
+
