@@ -23,7 +23,7 @@ To see a list of already installed fonts, run `Get-Fonts.ps1`.
 You can narrow the list by specifying the `-Name`, `-Path` parameter.
 
 ```
-❯ Get-Font.ps1 -Name plemol
+❯ Get-Font.ps1 -Name udev
 
 Name               Path
 ----               ----
