@@ -12,7 +12,7 @@ A font installer script for Windows
 
 ## Usage
 
-To install fonts, just specify font file path in first argument.
+To install fonts, just specify font file path or directory in first argument.
 This script resolve the path automatically so you can use glob pattern e.g. `*.ttf`
 
 ```powershell

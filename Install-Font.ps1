@@ -5,30 +5,44 @@ param
     [string] ${Path}
 )
 
-[int] ${namespace} = 0x14
+[int] ${namespaceIndex} = 0x14
 
-Resolve-Path -Path:${Path} | ForEach-Object -Process {
-    if (-not (Test-Path -Path:${_} -PathType:Leaf)) {
-        Write-Error "${_}: font file not found."
-        return
-    }
-}
-
-try
+function Invoke-FontInstallation
 {
-    ${shell} = New-Object -ComObject "Shell.Application"
-    ${fontDir} = ${shell}.Namespace(${namespace})
+    param (
+        [string[]] ${Path}
+    )
+    try
+    {
+        ${shell} = New-Object -ComObject "Shell.Application"
+        ${fontDir} = ${shell}.Namespace(${namespaceIndex})
 
-    Resolve-Path -Path:${Path} | ForEach-Object -Process {
-        Write-Verbose "Installing ${_}..."
-        ${fontDir}.CopyHere("${_}", ${namespace}) | Out-Null
+        foreach (${p} in ${Path})
+        {
+            Write-Verbose "Installing ${p}..."
+            ${fontDir}.CopyHere("${p}", ${namespaceIndex}) | Out-Null
+        }
+    } catch
+    {
+        throw
+    } finally
+    {
+        [System.Runtime.InteropServices.Marshal]::ReleaseComObject(${shell}) | Out-Null
     }
 } 
-catch 
+
+function Get-FontFile
 {
-    throw
+    param (
+        [string] ${Path}
+    )
+
+    foreach (${p} in ${Path})
+    {
+        Get-ChildItem -Path:${p} -Recurse -File -Include @("*.ttf", "*.otf") | Select-Object -ExpandProperty:FullName
+    }
 }
-finally
-{
-    [System.Runtime.InteropServices.Marshal]::ReleaseComObject(${shell}) | Out-Null
+
+Get-FontFile ${Path} | ForEach-Object -Process:{
+    Invoke-FontInstallation -Path:${_}
 }
